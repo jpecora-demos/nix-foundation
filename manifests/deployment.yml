@@ -14,7 +14,7 @@ spec:
         app: nix-foundation-www
     spec:
       containers:
-      - image: jpecora716/nix-foundation:latest
+      - image: public.ecr.aws/j7p1o2r8/jpecora/nix-foundation:latest
         name: nix-foundation-www
         ports:
         - containerPort: 8080
