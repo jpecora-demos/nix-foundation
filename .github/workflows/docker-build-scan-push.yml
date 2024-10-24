@@ -44,6 +44,8 @@ jobs:
         run: sudo -E ./wizcli auth
 
       - name: Run Wiz CLI image scan
+        env:
+          REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         id: scan
         run: |-
           sudo -E ./wizcli docker scan -i ${REGISTRY}/${IMAGE_REPO}:${IMAGE_TAG} --policy-hits-only --driver mountWithLayers \
@@ -64,4 +66,6 @@ jobs:
           docker push ${REGISTRY}/${IMAGE_REPO}:${IMAGE_TAG}
 
       - name: Run Wiz CLI image tag
+        env:
+          REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         run: sudo -E ./wizcli docker tag -i ${REGISTRY}/${IMAGE_REPO}:${IMAGE_TAG}
