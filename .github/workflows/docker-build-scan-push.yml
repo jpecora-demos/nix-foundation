@@ -54,9 +54,6 @@ jobs:
       - name: Download Wiz CLI
         run: curl -o wizcli https://wizcli.app.wiz.io/latest/wizcli && chmod +x wizcli
 
-      - name: Echo client ID
-        run: sudo -E "echo ${WIZ_CLIENT_ID}"
-
       - name: Authenticate to Wiz
         run: sudo -E ./wizcli auth
 
